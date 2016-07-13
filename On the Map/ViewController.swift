@@ -12,6 +12,10 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var textView: UITextView!
     
+    @IBOutlet weak var email: UITextField!
+    @IBOutlet weak var password: UITextField!
+   
+    
     @IBOutlet weak var signUp: UILabel!
     
     override func viewDidLoad() {
@@ -40,6 +44,17 @@ class ViewController: UIViewController {
         UIApplication.sharedApplication().openURL(url)
     }
 
+    @IBAction func loginPressed(sender: AnyObject) {
+        
+        UdacityClient.sharedInstance().startUdacitySession(email.text!, password: password.text!) { (result, error) in
+            if let error = error {
+                print(error)
+            } else {
+                print(result)
+            }
+        }
+        
+    }
 
 }
 

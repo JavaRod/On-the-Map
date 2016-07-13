@@ -16,7 +16,7 @@ class UdacityClient : NSObject {
     
     
     
-    func startUdacitySession(username: NSString, password: NSString, completionHandlerForFavorite: (result: Int?, error: NSError?) -> Void)  {
+    func startUdacitySession(username: NSString, password: NSString, completionHandlerForFavorite: (result: Bool?, error: NSError?) -> Void)  {
         
         /* 1. Create body of request */
         let parameters = [:]
@@ -32,10 +32,16 @@ class UdacityClient : NSObject {
             if let error = error {
                 completionHandlerForFavorite(result: nil, error: error)
             } else {
-                if let results = results[TMDBClient.JSONResponseKeys.StatusCode] as? Int {
-                    completionHandlerForFavorite(result: results, error: nil)
-                } else {
-                    completionHandlerForFavorite(result: nil, error: NSError(domain: "postToFavoritesList parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse postToFavoritesList"]))
+                if let accountDictionary = results[UdacityClient.JSONResponseKeys.Account] as? [String: AnyObject] {
+                    
+                    if let udacityUser = accountDictionary[UdacityClient.JSONResponseKeys.AccountRegistered] as? Bool {
+                         completionHandlerForFavorite(result: udacityUser, error: nil)
+                    } else {
+                        completionHandlerForFavorite(result: nil, error: NSError(domain: "postToFavoritesList parsing", code: 0, userInfo: [NSLocalizedDescriptionKey: "Could not parse postToFavoritesList"]))
+                    }
+
+                        
+                    
                 }
             }
         }
@@ -80,9 +86,12 @@ class UdacityClient : NSObject {
                 sendError("No data was returned by the request!")
                 return
             }
+        
+            //remove first 5 characters from Udacity response.  First 5 characters are for security.
+            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
-            self.convertDataWithCompletionHandler(data, completionHandlerForConvertData: completionHandlerForPOST)
+            self.convertDataWithCompletionHandler(newData, completionHandlerForConvertData: completionHandlerForPOST)
         }
         
         /* 7. Start the request */
