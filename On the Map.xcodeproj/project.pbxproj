@@ -14,6 +14,7 @@
 		3F67BE7D1D330F6300BCDED5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F67BE7B1D330F6300BCDED5 /* LaunchScreen.storyboard */; };
 		3F67BE881D34A73500BCDED5 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F67BE871D34A73500BCDED5 /* UdacityClient.swift */; };
 		3F67BE8A1D34A77300BCDED5 /* UdacityConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F67BE891D34A77300BCDED5 /* UdacityConstants.swift */; };
+		3F67EA641D57DF000095DA85 /* GCDBlackBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F67EA631D57DF000095DA85 /* GCDBlackBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3F67BE7E1D330F6300BCDED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F67BE871D34A73500BCDED5 /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		3F67BE891D34A77300BCDED5 /* UdacityConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityConstants.swift; sourceTree = "<group>"; };
+		3F67EA631D57DF000095DA85 /* GCDBlackBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDBlackBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		3F67BE711D330F6300BCDED5 /* On the Map */ = {
 			isa = PBXGroup;
 			children = (
+				3F67EA621D57DED10095DA85 /* Utilities */,
 				3F67BE841D34A6F600BCDED5 /* Model */,
 				3F67BE721D330F6300BCDED5 /* AppDelegate.swift */,
 				3F67BE741D330F6300BCDED5 /* ViewController.swift */,
@@ -92,6 +95,14 @@
 				3F67BE891D34A77300BCDED5 /* UdacityConstants.swift */,
 			);
 			name = Udacity;
+			sourceTree = "<group>";
+		};
+		3F67EA621D57DED10095DA85 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3F67EA631D57DF000095DA85 /* GCDBlackBox.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +180,7 @@
 				3F67BE8A1D34A77300BCDED5 /* UdacityConstants.swift in Sources */,
 				3F67BE731D330F6300BCDED5 /* AppDelegate.swift in Sources */,
 				3F67BE881D34A73500BCDED5 /* UdacityClient.swift in Sources */,
+				3F67EA641D57DF000095DA85 /* GCDBlackBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +330,7 @@
 				3F67BE831D330F6300BCDED5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

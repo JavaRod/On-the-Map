@@ -9,29 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "On the Map/ViewController.swift"
-            timestampString = "490075653.319815"
+            filePath = "On the Map/UdacityClient.swift"
+            timestampString = "490381085.267019"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "loginPressed(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "On the Map/ViewController.swift"
-            timestampString = "490075655.266083"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "loginPressed(_:)"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "taskForPOSTMethod(_:parameters:jsonBody:completionHandlerForPOST:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

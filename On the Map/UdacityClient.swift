@@ -75,6 +75,12 @@ class UdacityClient : NSObject {
                 return
             }
             
+            /* GUARD: Check for 403 unauthorized status */
+            guard let unauthorizedStatusCode = (response as? NSHTTPURLResponse)?.statusCode where unauthorizedStatusCode != 403 else {
+                sendError("Invalid username and/or password")
+                return
+            }
+            
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
                 sendError("Your request returned a status code other than 2xx!")

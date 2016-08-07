@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
-   
+    @IBOutlet weak var loginButton: UIButton!
     
     @IBOutlet weak var signUp: UILabel!
     
@@ -46,15 +46,56 @@ class ViewController: UIViewController {
 
     @IBAction func loginPressed(sender: AnyObject) {
         
+        var loginError: NSError!
+        
+        setUIEnabled(false)
+        
         UdacityClient.sharedInstance().startUdacitySession(email.text!, password: password.text!) { (result, error) in
+            performUIUpdatesOnMain {
+            
             if let error = error {
-                print(error)
+                loginError = error
+                let controller = UIAlertController()
+                controller.title = "Login Failed"
+                controller.message = loginError.localizedDescription
+                
+                let dismissAction = UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default) { action in self.dismissViewControllerAnimated(true, completion: nil)
+                }
+                
+                controller.addAction(dismissAction)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.presentViewController(controller, animated: true, completion: nil)
+                }
+
+                
             } else {
                 print(result)
             }
+                
+                self.setUIEnabled(true)
+            }
         }
         
+        
+        
+        
     }
+    
+    private func setUIEnabled(enabled: Bool) {
+        email.enabled = enabled
+        password.enabled = enabled
+        loginButton.enabled = enabled
+        signUp.enabled = enabled
+        
+        // adjust login button alpha
+        if enabled {
+            loginButton.alpha = 1.0
+        } else {
+            loginButton.alpha = 0.5
+        }
+    }
+    
+
 
 }
 
