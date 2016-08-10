@@ -69,7 +69,9 @@ class ViewController: UIViewController {
 
                 
             } else {
-                print(result)
+                dispatch_async(dispatch_get_main_queue()) {
+                self.performSegueWithIdentifier("studentLocationsSegue", sender: self)
+                }
             }
                 
                 self.setUIEnabled(true)
@@ -78,6 +80,10 @@ class ViewController: UIViewController {
         
         
         
+        
+    }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         
     }
     

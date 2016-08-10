@@ -89,11 +89,12 @@
                         <outlet property="loginButton" destination="U2y-bS-JM1" id="EgQ-7O-hBg"/>
                         <outlet property="password" destination="E8l-Ea-VgV" id="ZfJ-84-ttS"/>
                         <outlet property="signUp" destination="s3w-PR-YDb" id="ogG-J0-ArW"/>
+                        <segue destination="6b7-8h-dzs" kind="presentation" identifier="studentLocationsSegue" id="u9a-W6-zYI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="429"/>
+            <point key="canvasLocation" x="183" y="446"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="32k-IV-mRd">
@@ -131,12 +132,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SR0-6K-sNh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1821" y="307"/>
+            <point key="canvasLocation" x="2602" y="437"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="kpr-fS-IZa">
+            <objects>
+                <navigationController id="6b7-8h-dzs" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bcb-ek-O7L">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="V8n-p1-zuo" kind="relationship" relationship="rootViewController" id="Eyh-6u-E98"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pyx-JM-xPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="935" y="446"/>
+        </scene>
+        <!--Student Location Tab Bar Controller-->
         <scene sceneID="BiX-kf-Ti2">
             <objects>
-                <tabBarController id="V8n-p1-zuo" sceneMemberID="viewController">
+                <tabBarController id="V8n-p1-zuo" customClass="StudentLocationTabBarController" customModule="On_the_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4kP-e5-BdI">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="oCi-Gp-LBI">
+                            <connections>
+                                <action selector="logout:" destination="V8n-p1-zuo" id="1tG-Wd-gbM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3fa-Ig-PB0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -145,11 +169,13 @@
                     <connections>
                         <segue destination="LhY-4b-Z2F" kind="relationship" relationship="viewControllers" id="CmU-Ji-vsZ"/>
                         <segue destination="zlm-NW-g4q" kind="relationship" relationship="viewControllers" id="3C6-j4-hNf"/>
+                        <segue destination="pCN-EX-swg" kind="unwind" identifier="unwindToLoginViewController" unwindAction="prepareForUnwind:" id="7qO-qH-1Hr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zxz-9A-jcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pCN-EX-swg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1014" y="429"/>
+            <point key="canvasLocation" x="1774" y="437"/>
         </scene>
     </scenes>
     <resources>
